@@ -44,7 +44,7 @@ int main() {
   printf("Vowels: %d", vowels);
   printf("\nConsonants: %d", consonant);
   printf("\nDigits: %d", digit);
-  printf("\nWhite spaces: %d", space);
+  printf("\nWhite spaces: %d\n", space);
 
   return 0;
 }
