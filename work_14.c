@@ -28,7 +28,7 @@ int main() {
 
     // all other years are not leap years
     else {
-	printf("%d is not a leap year.\n, year");
+	printf("%d is not a leap year.\n", year);
     }
 
     return 0;
