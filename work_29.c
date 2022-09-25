@@ -4,12 +4,20 @@
 
 int main() {
 
-    int low, high, i, flag;
+    int low, high, temp, i, flag;
 
     printf("Enter two numbers(intervals): ");
     scanf("%d %d", &low, &high);
-    printf("\nPrime numbers between %d and %d are: ", low, high);
 
+    // swap numbers if low is greater than high
+    if (low > high) {
+	temp = low;
+	low = high;
+	high = temp;
+    }
+    
+    printf("\nPrime numbers between %d and %d are:\n", low, high);
+    
     // interval until low is not equal to high
     while (low < high) {
 	flag = 0;
