@@ -5,33 +5,38 @@ typedef struct student {
 	int age;
 }STUDENT;
 
-STUDENT input() {
-	STUDENT stu;
-	printf("\n----------------------------\n");
-	printf("이름 입력:");scanf("%s",&stu.name);
-	printf("나이 입력:");scanf("%d",&stu.age);
-	printf("\n----------------------------\n");
-    return stu;
-}
-
-void output(STUDENT stu) {
-	printf("\n----------------------------\n");
-	printf("이름: %s\n",stu.name);
-	printf("나이: %d\n",stu.age);
-	printf("\n----------------------------\n");
+void input(STUDENT s[], int size) {
+	int i;
+	for (i = 0; i < 3; i++) {
+		printf("\n----------------------------\n");
+		printf("이름 입력:");scanf("%s",&s[i].name);
+		printf("나이 입력:");scanf("%d",&s[i].age);
+		printf("\n----------------------------\n");
+    }
 }
 
 int main(void) {
-	STUDENT s;
+	STUDENT s[3];
 	int menu;
-	while(1) {
+	for(;;) {
 		printf("메뉴 선택:\n1.입력\n2.출력\n3.break.\n선택>>>");
 		scanf("%d", &menu);
 
-		if(menu==1) s=input();
-		if(menu==2) output(s);
+		if(menu==1) input(s,3);
+		if(menu==2) {
+
+			int i;
+			for (i = 0; i < 3; i++) {
+				printf("\n----------------------------\n");
+				printf("이름: %s\n",s[i].name);
+				printf("나이: %d\n",s[i].age);
+				printf("\n----------------------------\n");
+			}
+		}
+			
 		if(menu==3) break;
 	}
+	
 	return 0;
 
 }
