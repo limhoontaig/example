@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printS(int s, int* p);
+
 int main(void)
 {
     int s = 0, i = 0;
@@ -12,38 +14,38 @@ int main(void)
     p[1] = 20;
     p[2] = 30;
 
-    for(i = 0; i < s; i++)
+    printS(s, p);
+
+    s = 50;  
+    p = (int*)realloc(p, s * sizeof(int));  // int 50개 크기 메모리 재할당
+   
+    for(int j = 0, i = 0; i < s; i++, j+=100)
     {
-        printf("p[%d] = %d %p\n", i, p[i], p+i);
+        *(p+i) = j;
     }
 
-    printf("--------------\n");
-
-    s = 5;  
-    p = (int*)realloc(p, s * sizeof(int));  // int 5개 크기 메모리 재할당
-    p[3] = 40;
-    p[4] = 50;
-
-    for(i = 0; i < s; i++)
-    {
-        printf("p[%d] = %d %p\n", i, p[i], (p+i));
-    }
-
-    printf("--------------\n");
-
+    printS(s, p);
+     
     s = 2;  
     p = (int*)realloc(p, s * sizeof(int));  // int 2개 크기 메모리 재할당
     p[0] = 11;
     p[1] = 22;
 
-    for(i = 0; i < s; i++)
-    {
-        printf("p[%d] = %d %p\n", i, p[i], p + i);
-    }
-
+    printS(s, p);
 
     free(p);
     p = NULL;
 
     return 0;
+}
+
+void printS(int s, int* p)
+{
+    int i = 0;
+    printf("--------------\n");
+    for(i = 0; i < s; i++)
+    {
+        printf("p[%d] = %d %p\n", i, p[i], p+i);
+    }
+    printf("--------------\n");
 }
