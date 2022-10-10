@@ -17,7 +17,8 @@ void printCode(void)
     FILE *fp;
 
     // open the current input file
-    fp = fopen(__FILE__,"r");
+    fp = fopen("/home/limht/example/pointerArray02.c","r");
+    
 
     do {
 	c = getc(fp); // read character
