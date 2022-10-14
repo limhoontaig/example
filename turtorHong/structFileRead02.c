@@ -6,16 +6,16 @@
 struct userInfo tmp[3];
 
 void createStruct() {
-	strcpy(tmp[0].name, "a");
-	strcpy(tmp[0].sex, "m");
+	strcpy(tmp[0].name, "apple mango");
+	strcpy(tmp[0].sex, "ma");
 	tmp[0].age = 26;
 
-	strcpy(tmp[1].name, "b");
-	strcpy(tmp[1].sex, "m");
+	strcpy(tmp[1].name, "banana cherry");
+	strcpy(tmp[1].sex, "ma");
 	tmp[1].age = 30;
 
-	strcpy(tmp[2].name, "c");
-	strcpy(tmp[2].sex, "f");
+	strcpy(tmp[2].name, "charles chepplin");
+	strcpy(tmp[2].sex, "fe");
 	tmp[2].age = 25;
 }
 
@@ -41,7 +41,7 @@ int main() {
 	fread(buf, sizeof(struct userInfo), 3, f);
 	int i;
 	for(i = 0; i<3; i++) {
-		printf("name = %s, sex = %s, age = %d\n", buf[i].name, buf[i].sex, buf[i].age);
+		printf("name = %-20s, sex = %3s, age = %3d\n", buf[i].name, buf[i].sex, buf[i].age);
 	}
 	
 	fclose(f);
